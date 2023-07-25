@@ -2,4 +2,7 @@
     <string name="app_name">onlytoodoo</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="test_string">Enter the task title</string>
+    <string name="sample_text">Finish my homework</string>
+    <string name="content_desc">Content description</string>
 </resources>

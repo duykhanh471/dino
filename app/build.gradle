@@ -11,6 +11,9 @@ android {
     namespace 'vn.onlyduyy.onlytoodoo'
     compileSdk 33
 
+    buildFeatures {
+        viewBinding true
+    }
     defaultConfig {
         applicationId "vn.onlyduyy.onlytoodoo"
         minSdk 16

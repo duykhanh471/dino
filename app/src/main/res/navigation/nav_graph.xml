@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="vn.onlyduyy.onlytoodoo.fragment.DashboardFragment"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_taskEditFragment"
+            app:destination="@id/taskEditFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_taskUpdateFragment"
+            app:destination="@id/taskUpdateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskUpdateFragment"
+        android:name="vn.onlyduyy.onlytoodoo.fragment.TaskUpdateFragment"
+        android:label="task_update"
+        tools:layout="@layout/task_update" >
+        <action
+            android:id="@+id/action_taskUpdateFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskEditFragment"
+        android:name="vn.onlyduyy.onlytoodoo.fragment.TaskEditFragment"
+        android:label="task_edit"
+        tools:layout="@layout/task_edit" >
+        <action
+            android:id="@+id/action_taskEditFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
+</navigation>

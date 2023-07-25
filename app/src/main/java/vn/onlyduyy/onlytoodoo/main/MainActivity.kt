@@ -2,11 +2,16 @@ package vn.onlyduyy.onlytoodoo.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import vn.onlyduyy.onlytoodoo.R
+import dagger.hilt.android.AndroidEntryPoint
+import vn.onlyduyy.onlytoodoo.databinding.ActivityMainBinding
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setSupportActionBar(binding.mainToolbar)
     }
 }
