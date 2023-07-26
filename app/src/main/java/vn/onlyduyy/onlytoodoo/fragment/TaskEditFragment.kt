@@ -6,21 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 import vn.onlyduyy.onlytoodoo.R
 import vn.onlyduyy.onlytoodoo.database.TaskEntity
 
 import vn.onlyduyy.onlytoodoo.databinding.TaskEditBinding
 import vn.onlyduyy.onlytoodoo.viewmodel.TaskViewModel
-
+@AndroidEntryPoint
 
 class TaskEditFragment : Fragment(R.layout.task_edit) {
     private lateinit var binding: TaskEditBinding
     private val viewModel: TaskViewModel by viewModels()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,8 +30,10 @@ class TaskEditFragment : Fragment(R.layout.task_edit) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        saveTask()
+        binding.editFab.setOnClickListener {
+            saveTask()
+            it.findNavController().navigate(R.id.action_taskEditFragment_to_dashboardFragment)
+        }
     }
 
     private fun saveTask() {
@@ -43,10 +43,11 @@ class TaskEditFragment : Fragment(R.layout.task_edit) {
         if (binding.etTaskName.text.isNotEmpty()) {
             val task = TaskEntity(0, taskTitle, completed)
             viewModel.insertTask(task)
-            Snackbar.make(view!!, "Added!", Snackbar.LENGTH_SHORT)
+            Snackbar.make(requireView(), "Added!", Snackbar.LENGTH_SHORT).show()
+
 
         } else {
-            Snackbar.make(view!!, "Please add the task name!", Snackbar.LENGTH_SHORT)
+            Snackbar.make(requireView(), "Please add the task name!", Snackbar.LENGTH_SHORT).show()
         }
 
     }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import vn.onlyduyy.onlytoodoo.R
@@ -30,6 +31,13 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        displayTaskList()
+        binding.addTaskButton.setOnClickListener {
+            it.findNavController().navigate(R.id.action_dashboardFragment_to_taskEditFragment)
+        }
+    }
+
+    private fun displayTaskList() {
         taskAdapter = TaskAdapter()
         binding.apply {
             dashboardList.adapter = taskAdapter

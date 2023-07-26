@@ -19,19 +19,13 @@ object AppModule {
     @Provides
     @Singleton
     fun provideDatabase(app: Application) = Room.databaseBuilder(app, TaskDatabase::class.java, "task_db")
-            .fallbackToDestructiveMigration()
             .build()
     @Provides
-    @Singleton
     fun provideTaskDao(taskDatabase: TaskDatabase) = taskDatabase.getTaskDao()
 
     @Provides
     @Singleton
     fun provideTaskRepository(taskDao: TaskDao) = TaskRepository(taskDao)
 
-    @ApplicationScope
-    @Provides
-    @Singleton
-    fun provideApplicationScope() = CoroutineScope(SupervisorJob())
 }
 
