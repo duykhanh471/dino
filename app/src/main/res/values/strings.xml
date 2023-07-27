@@ -5,4 +5,10 @@
     <string name="test_string">Enter the task title</string>
     <string name="sample_text">Finish my homework</string>
     <string name="content_desc">Content description</string>
+    <string name="search_icon">Search</string>
+    <string name="hide_completed">Hide completed</string>
+    <string name="delete_all_completed">Delete all completed</string>
+    <string name="sort_by_date">Sort by date</string>
+    <string name="sort_by_name">Sort by name</string>
+    <string name="sort">Sort</string>
 </resources>

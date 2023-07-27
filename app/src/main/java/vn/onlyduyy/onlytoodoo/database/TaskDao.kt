@@ -9,7 +9,7 @@ import androidx.room.Query
 import androidx.room.Update
 @Dao
 interface TaskDao {
-    @Query("select * from task_table")
+    @Query("select * from task_table order by taskName DESC")
     fun retrieveAllTasks() : LiveData<List<TaskEntity>>
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTask(task: TaskEntity)
